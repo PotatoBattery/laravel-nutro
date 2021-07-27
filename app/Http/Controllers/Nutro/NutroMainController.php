@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Nutro;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class NutroMainController extends Controller
 {
@@ -35,7 +36,13 @@ class NutroMainController extends Controller
 
     public function profile()
     {
-        return view('nutro.profile');
+        $userNameData = Auth::user()->name;
+        if($userNameData != null){
+            $userName = explode(' ', $userNameData);
+        }else{
+            $userName = ['', ''];
+        }
+        return view('nutro.profile', compact('userName'));
     }
 
     public function statistic()
