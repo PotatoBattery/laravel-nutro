@@ -37,4 +37,5 @@ Route::prefix('')->group(function (){
     Route::get('/forgot_password', [NutroMainController::class, 'forgotPassword'])->name('forgot_password');
     Route::get('/profile', [NutroMainController::class, 'profile'])->name('profile');
     Route::get('/statistic', [NutroMainController::class, 'statistic'])->name('statistic');
+    Route::get('/result', [NutroMainController::class, 'result'])->name('result');
 });

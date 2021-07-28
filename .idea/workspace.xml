@@ -20,23 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="582130ea-53c6-4d2a-a8dd-2ea7bc06ad19" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/includes/back.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/includes/mail.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/includes/settings.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Nutro/NutroMainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Nutro/NutroMainController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/mail.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/mail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/signin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/signin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/signup.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/signup.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/nutro/about.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/nutro/about.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/nutro/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/nutro/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/nutro/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/nutro/profile.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/nutro/settings.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/nutro/settings.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,13 +40,16 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution />
+    <execution>
+      <executable path="composer" />
+    </execution>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="composer.json" />
         <option value="CSS File" />
+        <option value="Vue Single File Component" />
       </list>
     </option>
   </component>
@@ -181,6 +179,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -211,6 +210,7 @@
       <workItem from="1623499660213" duration="2916000" />
       <workItem from="1624040473778" duration="22000" />
       <workItem from="1627314663427" duration="371000" />
+      <workItem from="1627451867577" duration="16145000" />
     </task>
     <servers />
   </component>
@@ -228,15 +228,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="1060" y="275" key="FileChooserDialogImpl" timestamp="1624040492056">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state x="1060" y="275" key="FileChooserDialogImpl/0.0.2560.1040@0.0.2560.1040" timestamp="1624040492056" />
-    <state x="987" y="253" width="585" height="534" key="find.popup" timestamp="1620521064637">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state x="987" y="253" width="585" height="534" key="find.popup/0.0.2560.1040@0.0.2560.1040" timestamp="1620521064637" />
   </component>
 </project>

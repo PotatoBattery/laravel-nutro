@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Nutro;
 
 use App\Http\Controllers\Controller;
+use App\Models\Nutro\NutroQuotes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -48,5 +49,17 @@ class NutroMainController extends Controller
     public function statistic()
     {
         return view('nutro.statistic');
+    }
+
+    public function result(Request $request)
+    {
+        $time = intval(explode('.', $request->get('time'))[0]);
+        $text = NutroQuotes::where('locale', '=', 'ru')->orderByRaw("RAND()")->first(['quote']);
+        if(Auth::check())
+        {
+            return view('nutro.result', compact('time', 'text'));
+        }else{
+            return view('nutro.result', compact('time', 'text'));
+        }
     }
 }
