@@ -18,10 +18,12 @@ window.Vue = require('vue').default;
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+Vue.component('v-chart', require('./components/chart/ChartComponent').default);
 Vue.component('nutro-index', require('./components/nutro/IndexComponent').default);
 Vue.component('nutro-timer', require('./components/nutro/TimerSelectComponent').default);
 Vue.component('nutro-timer-value', require('./components/nutro/TimerValueComponent').default);
 Vue.component('nutro-music-start', require('./components/nutro/MusicSelectAndStartComponent').default);
+Vue.component('nutro-chart', require('./components/nutro/NutroLineChart').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

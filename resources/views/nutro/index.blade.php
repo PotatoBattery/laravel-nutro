@@ -8,7 +8,7 @@
             @include('includes.profile')
             @include('includes.statistic_auth')
         @endguest
-        <nutro-index />
         @include('includes.settings')
+        <nutro-index />
     </div>
 @endsection

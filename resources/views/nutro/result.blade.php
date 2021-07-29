@@ -1,6 +1,6 @@
 @extends('layouts.nutro')
 @php
-    /** @var  $time */
+      /** @var  $time */
      /** @var  $count */
      /** @var  $text */
 @endphp
@@ -44,9 +44,9 @@
                 <a class="button button-fill button-statistic" href="{{ route('mainpage') }}">Начать заново</a>
                 <button class="button button-transparent button-share button-statistic">Поделиться</button>
                 @if(!auth()->guest())
-                <button class="button button-transparent button-statistic" id="common_statistic">Открыть статистику</button>
+                    <a href="{{ route('statistic') }}" class="button button-transparent button-statistic" id="common_statistic">Открыть статистику</a>
                 @else
-                <a href="{{ route('signin') }}" class="signin-link-btn">Войдите, чтобы отслеживать прогресс</a>
+                    <a href="{{ route('signin') }}" class="signin-link-btn">Войдите, чтобы отслеживать прогресс</a>
                 @endif
             </div>
         </div>

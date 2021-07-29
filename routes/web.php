@@ -27,7 +27,6 @@ Route::get('login/facebook/callback', [LoginController::class, 'handleFacebookCa
 
 Auth::routes();
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::prefix('')->group(function (){
     Route::get('/settings', [NutroMainController::class, 'settings'])->name('settings');
@@ -35,7 +34,7 @@ Route::prefix('')->group(function (){
     Route::get('/signin', [NutroMainController::class, 'signin'])->name('signin');
     Route::get('/signup', [NutroMainController::class, 'signup'])->name('signup');
     Route::get('/forgot_password', [NutroMainController::class, 'forgotPassword'])->name('forgot_password');
-    Route::get('/profile', [NutroMainController::class, 'profile'])->name('profile');
-    Route::get('/statistic', [NutroMainController::class, 'statistic'])->name('statistic');
+    Route::get('/profile', [NutroMainController::class, 'profile'])->middleware('auth')->name('profile');
+    Route::get('/statistic', [NutroMainController::class, 'statistic'])->middleware('auth')->name('statistic');
     Route::get('/result', [NutroMainController::class, 'result'])->name('result');
 });
