@@ -7,48 +7,52 @@ use App\Models\Nutro\DayInRow;
 use App\Models\Nutro\NutroQuotes;
 use App\Models\Nutro\Statistic;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 
 class NutroMainController extends Controller
 {
 
-    public function settings()
+    public function settings(): Response
     {
-        return view('nutro.settings');
+        return response()->view('nutro.settings');
     }
 
-    public function about()
+    public function about(): Response
     {
-        return view('nutro.about');
+        return response()->view('nutro.about');
     }
 
-    public function signin()
+    public function signin(): Response
     {
-        return view('auth.signin');
+        return response()->view('auth.signin');
     }
 
-    public function signup()
+    public function signup(): Response
     {
-        return view('auth.signup');
+        return response()->view('auth.signup');
     }
 
-    public function forgotPassword()
+    public function forgotPassword(): Response
     {
-        return view('auth.forgot_password');
+        return response()->view('auth.forgot_password');
     }
 
-    public function profile()
+    public function profile(): Response
     {
+        $access = Auth::user()->provider_id == null;
+        $uid = Auth::user()->id;
         $userNameData = Auth::user()->name;
         if($userNameData != null){
             $userName = explode(' ', $userNameData);
         }else{
             $userName = ['', ''];
         }
-        return view('nutro.profile', compact('userName'));
+        $email = Auth::user()->email;
+        return response()->view('nutro.profile', compact('userName', 'email', 'access', 'uid'));
     }
 
-    public function statistic()
+    public function statistic(): Response
     {
         $uid = Auth::user()->id;
         $daysData = DayInRow::where('user_id', '=', $uid)->first();
@@ -80,7 +84,7 @@ class NutroMainController extends Controller
         }else{
             $time = 0;
         }
-        return view('nutro.statistic', compact('days', 'count', 'time', 'uid'));
+        return response()->view('nutro.statistic', compact('days', 'count', 'time', 'uid'));
     }
 
     public function result(Request $request)
@@ -96,10 +100,10 @@ class NutroMainController extends Controller
             $result = Statistic::timeControl($request->get('time'));
             $time = $result[0] != '' ? $result[0] : $tmpTime;
             $count = $result[1] != '' ? $result[1] : 1;
-            return view('nutro.result', compact('time', 'text', 'count'));
+            return response()->view('nutro.result', compact('time', 'text', 'count'));
         }else{
             $time = $tmpTime;
-            return view('nutro.result', compact('time', 'text'));
+            return response()->view('nutro.result', compact('time', 'text'));
         }
     }
 }

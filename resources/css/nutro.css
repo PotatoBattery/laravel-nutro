@@ -420,7 +420,7 @@ a.button{
 .yes{
     width: 6%;
     position: absolute;
-    right: 40px;
+    right: 0;
     top: 5px;
     cursor: pointer;
 }
@@ -428,7 +428,7 @@ a.button{
 .no{
     width: 6%;
     position: absolute;
-    right: 0;
+    right: -30px;
     top: 5px;
     cursor: pointer;
 }
