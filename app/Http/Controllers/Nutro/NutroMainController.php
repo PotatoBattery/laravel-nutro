@@ -10,7 +10,6 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class NutroMainController extends Controller
 {
@@ -18,11 +17,6 @@ class NutroMainController extends Controller
     public function settings(): Response
     {
         $locale = App::getLocale();
-//        foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-//        {
-//            dd($properties);
-//        }
-//        dd(__METHOD__, LaravelLocalization::getSupportedLocales(), App::getLocale());
         return response()->view('nutro.settings', compact('locale'));
     }
 
@@ -102,7 +96,7 @@ class NutroMainController extends Controller
             return redirect('/');
         }
         $tmpTime = intval(explode('.', $request->get('time'))[0]);
-        $text = NutroQuotes::where('locale', '=', 'ru')->orderByRaw("RAND()")->first(['quote']);
+        $text = NutroQuotes::where('locale', '=', App::getLocale())->orderByRaw("RAND()")->first(['quote']);
         if(Auth::check())
         {
             $result = Statistic::timeControl($request->get('time'));
