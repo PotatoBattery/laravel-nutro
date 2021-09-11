@@ -8,14 +8,22 @@ use App\Models\Nutro\NutroQuotes;
 use App\Models\Nutro\Statistic;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class NutroMainController extends Controller
 {
 
     public function settings(): Response
     {
-        return response()->view('nutro.settings');
+        $locale = App::getLocale();
+//        foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+//        {
+//            dd($properties);
+//        }
+//        dd(__METHOD__, LaravelLocalization::getSupportedLocales(), App::getLocale());
+        return response()->view('nutro.settings', compact('locale'));
     }
 
     public function about(): Response

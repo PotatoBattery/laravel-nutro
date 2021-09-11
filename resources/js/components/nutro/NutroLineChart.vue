@@ -11,10 +11,14 @@
 export default {
     name: "NutroLineChart",
     props:{
-      uid:{
-          type: Number,
-          required: true
-      }
+        uid:{
+            type: Number,
+            required: true
+        },
+        translate: {
+            type: String,
+            require: true
+        }
     },
     data()
     {
@@ -23,7 +27,7 @@ export default {
             chartData: {
                 labels: [],
                 datasets: [{
-                    label: 'Статистика медитаций',
+                    label: this.translate,
                     data: [],
                     fill: true,
                     borderColor: 'rgb(75, 192, 192)',

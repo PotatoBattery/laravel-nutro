@@ -1993,6 +1993,10 @@ __webpack_require__.r(__webpack_exports__);
     uid: {
       type: Number,
       required: true
+    },
+    translate: {
+      type: String,
+      require: true
     }
   },
   data: function data() {
@@ -2001,7 +2005,7 @@ __webpack_require__.r(__webpack_exports__);
       chartData: {
         labels: [],
         datasets: [{
-          label: 'Статистика медитаций',
+          label: this.translate,
           data: [],
           fill: true,
           borderColor: 'rgb(75, 192, 192)',
