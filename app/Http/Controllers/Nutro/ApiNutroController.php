@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 
 class ApiNutroController extends Controller
 {
@@ -45,5 +46,11 @@ class ApiNutroController extends Controller
             }
             $user->save();
         }
+    }
+
+    public function setColorTheme(Request $request)
+    {
+        Cookie::queue('color', $request->get('theme'), 43200);
+//        return  Cookie::get('color');
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\Auth\LoginController;
 use \App\Http\Controllers\Nutro\NutroMainController;
@@ -25,16 +26,14 @@ Route::get('login/facebook/callback', [LoginController::class, 'handleFacebookCa
 
 Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 {
-    Auth::routes();
-    Route::get('/', function () {
-        return view('nutro.index');
-    })->name('mainpage');
+    Route::get('/', [HomeController::class, 'index'])->name('mainpage');
+    Route::get('/result', [NutroMainController::class, 'result'])->name('result');
     Route::get('/settings', [NutroMainController::class, 'settings'])->name('settings');
     Route::get('/about', [NutroMainController::class, 'about'])->name('about');
     Route::get('/signin', [NutroMainController::class, 'signin'])->name('signin');
     Route::get('/signup', [NutroMainController::class, 'signup'])->name('signup');
     Route::get('/forgot_password', [NutroMainController::class, 'forgotPassword'])->name('forgot_password');
+    Auth::routes();
     Route::get('/profile', [NutroMainController::class, 'profile'])->middleware('auth')->name('profile');
     Route::get('/statistic', [NutroMainController::class, 'statistic'])->middleware('auth')->name('statistic');
-    Route::get('/result', [NutroMainController::class, 'result'])->name('result');
 });

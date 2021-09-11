@@ -1,7 +1,7 @@
 <template>
-    <div class="profile-list-item">
+    <div :class="selectedClass">
         <label>{{ label }}: </label>
-        <a href="" class="firstname-link" v-if="!show">
+        <a href="#" :class="linkColor" v-if="!show">
             {{ fieldData }}
         </a>
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" class="pen" v-if="!show" v-on:click="edit">
@@ -36,13 +36,24 @@ export default {
         uid: {
             type: Number,
             required: true
+        },
+        selectedClass : {
+            type: String,
+            require: true
         }
     },
     data(){
         return {
             fieldData: this.field,
             show: false,
-            icons: false
+            icons: false,
+            linkColor: 'firstname-link'
+        }
+    },
+    mounted() {
+        if(this.selectedClass.includes('wb'))
+        {
+            this.linkColor = 'firstname-link black';
         }
     },
     methods: {
@@ -75,5 +86,8 @@ export default {
 <style scoped>
     label{
         width: calc(100% - 360px);
+    }
+    .black{
+        color: black;
     }
 </style>

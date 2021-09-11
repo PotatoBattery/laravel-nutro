@@ -25,6 +25,7 @@ Vue.component('nutro-timer-value', require('./components/nutro/TimerValueCompone
 Vue.component('nutro-music-start', require('./components/nutro/MusicSelectAndStartComponent').default);
 Vue.component('nutro-chart', require('./components/nutro/NutroLineChart').default);
 Vue.component('nutro-profile-item', require('./components/nutro/ProfileComponent').default);
+Vue.component('nutro-color-control', require('./components/nutro/ColorControlComponent').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

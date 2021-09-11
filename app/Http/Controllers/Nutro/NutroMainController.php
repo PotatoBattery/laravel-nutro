@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 
 class NutroMainController extends Controller
 {
@@ -17,27 +18,37 @@ class NutroMainController extends Controller
     public function settings(): Response
     {
         $locale = App::getLocale();
-        return response()->view('nutro.settings', compact('locale'));
+        $theme = Cookie::get('color');
+        $classes = $this->getTheme($theme);
+        return response()->view('nutro.settings', compact('locale', 'theme', 'classes'));
     }
 
     public function about(): Response
     {
-        return response()->view('nutro.about');
+        $theme = Cookie::get('color');
+        $classes = $this->getTheme($theme);
+        return response()->view('nutro.about', compact('classes'));
     }
 
     public function signin(): Response
     {
-        return response()->view('auth.signin');
+        $theme = Cookie::get('color');
+        $classes = $this->getTheme($theme);
+        return response()->view('auth.signin', compact('classes'));
     }
 
     public function signup(): Response
     {
-        return response()->view('auth.signup');
+        $theme = Cookie::get('color');
+        $classes = $this->getTheme($theme);
+        return response()->view('auth.signup', compact('classes'));
     }
 
     public function forgotPassword(): Response
     {
-        return response()->view('auth.forgot_password');
+        $theme = Cookie::get('color');
+        $classes = $this->getTheme($theme);
+        return response()->view('auth.forgot_password', compact('classes'));
     }
 
     public function profile(): Response
@@ -51,7 +62,9 @@ class NutroMainController extends Controller
             $userName = ['', ''];
         }
         $email = Auth::user()->email;
-        return response()->view('nutro.profile', compact('userName', 'email', 'access', 'uid'));
+        $theme = Cookie::get('color');
+        $classes = $this->getTheme($theme);
+        return response()->view('nutro.profile', compact('userName', 'email', 'access', 'uid', 'classes'));
     }
 
     public function statistic(): Response
@@ -86,7 +99,9 @@ class NutroMainController extends Controller
         }else{
             $time = 0;
         }
-        return response()->view('nutro.statistic', compact('days', 'count', 'time', 'uid'));
+        $theme = Cookie::get('color');
+        $classes = $this->getTheme($theme);
+        return response()->view('nutro.statistic', compact('days', 'count', 'time', 'uid', 'classes'));
     }
 
     public function result(Request $request)
@@ -97,15 +112,74 @@ class NutroMainController extends Controller
         }
         $tmpTime = intval(explode('.', $request->get('time'))[0]);
         $text = NutroQuotes::where('locale', '=', App::getLocale())->orderByRaw("RAND()")->first(['quote']);
+        $theme = Cookie::get('color');
+        $classes = $this->getTheme($theme);
         if(Auth::check())
         {
             $result = Statistic::timeControl($request->get('time'));
             $time = $result[0] != '' ? $result[0] : $tmpTime;
             $count = $result[1] != '' ? $result[1] : 1;
-            return response()->view('nutro.result', compact('time', 'text', 'count'));
+            return response()->view('nutro.result', compact('time', 'text', 'count', 'classes'));
         }else{
             $time = $tmpTime;
-            return response()->view('nutro.result', compact('time', 'text'));
+            return response()->view('nutro.result', compact('time', 'text', 'classes'));
+        }
+    }
+
+    public function getTheme($theme)
+    {
+        if($theme == 'wb'){
+            return array(
+                'wrap' => '',
+                'text-white' => '',
+                'icons' => 'st1',
+                'menu-items' => 'setting-menu-item-wb',
+                'menu-items_link' => 'wb',
+                'language-options' => 'language-options_wb',
+                'language-options_label' => 'label_wb',
+                'button-fill' => 'button-fill_wb',
+                'button-transparent' => 'button-transparent_wb',
+                'field' => 'field_wb',
+                'signup-link' => 'signup-link_wb',
+                'music-link' => 'music-link_wb',
+                'errors' => 'errors_wb',
+                'profile-list-item' => 'profile-list-item-wb',
+                'forgot_password_link' => 'forgot_password_link-wb',
+                'signin-link-btn' => 'signin-link-btn-wb',
+                'statistic-result' => 'statistic-result-wb',
+                'result-quote' => 'result-quote-wb',
+                'result-count' => 'result-count-wb',
+                'result-title' => 'result-title-wb',
+                'timer-values' => 'timer-values-wb',
+                'timer-value' => 'timer-value-wb',
+                'p-black' =>'p-black'
+            );
+        }else{
+            return array(
+                'wrap' => 'wrap-color',
+                'text-white' => 'text-white',
+                'icons' => 'st0',
+                'menu-items' => '',
+                'menu-items_link' => '',
+                'language-options' => '',
+                'language-options_label' => '',
+                'button-fill' => 'button-fill',
+                'button-transparent' => 'button-transparent',
+                'field' => '',
+                'signup-link' => 'signup-link',
+                'music-link' => 'music-link',
+                'errors' => 'errors',
+                'profile-list-item' => '',
+                'forgot_password_link' => '',
+                'signin-link-btn' => 'signin-link-btn',
+                'statistic-result' => 'statistic-result',
+                'result-quote' => 'result-quote',
+                'result-count' => 'result-count',
+                'result-title' => 'result-title',
+                'timer-values' => 'timer-values',
+                'timer-value' => 'timer-value',
+                'p-black' => ''
+            );
         }
     }
 }

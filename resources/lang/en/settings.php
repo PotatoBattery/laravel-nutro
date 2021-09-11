@@ -6,4 +6,5 @@ return [
     'lang' => 'Language',
     'information' => 'Information',
     'logout' => 'Logout',
+    'return' => 'Main page'
 ];

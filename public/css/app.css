@@ -98,6 +98,9 @@ a.button{
 .text-white {
     color: #FFFFFF;
 }
+.p-black{
+    color: #000000 !important;
+}
 /*значения таймера*/
 .timer-values{
     background: #FFFFFF;
@@ -333,7 +336,7 @@ a.button{
     width: auto;
     font-size: 1em;
     font-weight: 400;
-    color: #000000;
+    color: #000000 !important;
 }
 /*ссылка "забыли пароль?"*/
 .forgot_password_link{

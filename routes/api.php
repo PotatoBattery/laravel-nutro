@@ -21,3 +21,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/chart/', [ApiNutroController::class, 'getChart'])->name('api.chart');
 Route::post('/profile/', [ApiNutroController::class, 'saveProfileField'])->name('api.profile');
+Route::get('/color/', [ApiNutroController::class, 'setColorTheme'])->name('api.color');
