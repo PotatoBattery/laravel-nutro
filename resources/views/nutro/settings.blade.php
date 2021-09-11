@@ -29,15 +29,6 @@
                     @else
                         <a hreflang="en" href="{{ Mcamara\LaravelLocalization\Facades\LaravelLocalization::getLocalizedURL("en", null, [], true) }}" class="language-link">Русский</a>
                     @endif
-{{--                    <a href="javascript:showLanguageOptions();" id="language" class="language-link">Русский</a>--}}
-{{--                    <div id="language-options" class="language-options">--}}
-{{--                        <div class="language-option">--}}
-{{--                            <input type="radio" name="lang" id="lang-ru" value="ru" onclick="checkType()" checked><label for="lang-ru">Русский</label>--}}
-{{--                        </div>--}}
-{{--                        <div class="language-option">--}}
-{{--                            <input type="radio" name="lang" id="lang-en" value="en" onclick="checkType()"><label for="lang-en">English</label>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
                 </div>
                 <div class="setting-menu-item">
                     <a href="{{ route('about') }}">{{ __('settings.information') }}</a>

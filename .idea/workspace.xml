@@ -24,8 +24,9 @@
   <component name="ChangeListManager">
     <list default="true" id="582130ea-53c6-4d2a-a8dd-2ea7bc06ad19" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Nutro/NutroMainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Nutro/NutroMainController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/nutro/statistic.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/nutro/statistic.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/nutro/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/nutro/profile.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/nutro/settings.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/nutro/settings.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,7 +226,7 @@
       <workItem from="1627627610042" duration="300000" />
       <workItem from="1627629413083" duration="2552000" />
       <workItem from="1627632013433" duration="4379000" />
-      <workItem from="1631338367169" duration="5615000" />
+      <workItem from="1631338367169" duration="6265000" />
     </task>
     <servers />
   </component>
