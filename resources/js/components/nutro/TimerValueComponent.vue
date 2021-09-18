@@ -15,6 +15,10 @@ export default {
         selected: {
             type: Boolean,
             required: true
+        },
+        theme:{
+            type: String,
+            require: true
         }
     },
     data(){
@@ -23,7 +27,7 @@ export default {
         }
     },
     mounted() {
-        this.selectedClass = this.selected ? 'timer-value timer-value-selected' : 'timer-value';
+        this.selectedClass = this.selected ? this.theme + ' timer-value-selected' : this.theme;
         if(this.selected){
             this.$root.$emit('selected', this.$el);
         }

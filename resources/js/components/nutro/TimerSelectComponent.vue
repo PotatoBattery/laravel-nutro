@@ -1,18 +1,19 @@
 <template>
     <div>
         <div class="title-container" v-if="timer">
-            <div class="page-title text-white" v-if="!timerWork">
+            <div :class="'page-title ' + text" v-if="!timerWork">
                 <h1 class="page-title-l timer" v-on:click="startSelectTime">{{ value }}</h1>
             </div>
-            <div class="page-title text-white" v-else>
+            <div :class="'page-title ' + text" v-else>
                 <h1 class="page-title-l timer" >{{ value }}</h1>
             </div>
         </div>
-        <div class="timer-values" v-else>
+        <div :class="timerValues" v-else>
             <div class="timer-value-empty"></div>
             <nutro-timer-value v-for="n in 60"
                                :value="prepareValue(n)"
                                :selected="prepareSelected(n)"
+                               :theme="timerValue"
                                :key="n" />
             <div class="timer-value-empty"></div>
         </div>
@@ -22,6 +23,21 @@
 <script>
 export default {
     name: "TimerSelectComponent",
+    props:
+    {
+        timerValues: {
+            type: String,
+            require: true
+        },
+        timerValue: {
+            type: String,
+            require: true
+        },
+        text:{
+            type: String,
+            require: true
+        }
+    },
     data() {
         return {
             timer: true,

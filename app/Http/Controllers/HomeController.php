@@ -39,17 +39,17 @@ class HomeController extends Controller
         if($theme == 'wb'){
             return array(
                 'wrap' => '',
-                'text-white' => '',
+                'text_white' => '',
                 'icons' => 'st1',
                 'menu-items' => 'setting-menu-item-wb',
                 'menu-items_link' => 'wb',
                 'language-options' => 'language-options_wb',
                 'language-options_label' => 'label_wb',
-                'button-fill' => 'button-fill_wb',
-                'button-transparent' => 'button-transparent_wb',
+                'button_fill' => 'button-fill_wb',
+                'button_transparent' => 'button-transparent_wb',
                 'field' => 'field_wb',
                 'signup-link' => 'signup-link_wb',
-                'music-link' => 'music-link_wb',
+                'music_link' => 'music-link_wb',
                 'errors' => 'errors_wb',
                 'profile-list-item' => 'profile-list-item-wb',
                 'forgot_password_link' => 'forgot_password_link-wb',
@@ -60,12 +60,14 @@ class HomeController extends Controller
                 'result-title' => 'result-title-wb',
                 'timer-values' => 'timer-values-wb',
                 'timer-value' => 'timer-value-wb',
-                'p-black' =>'p-black'
+                'p-black' =>'p-black',
+                'timer_values' => 'timer-values-wb',
+                'timer_value' => 'timer-value-wb'
             );
         }else{
             return array(
                 'wrap' => 'wrap-color',
-                'text-white' => 'text-white',
+                'text_white' => 'text-white',
                 'icons' => 'st0',
                 'menu-items' => '',
                 'menu-items_link' => '',
@@ -75,7 +77,7 @@ class HomeController extends Controller
                 'button-transparent' => 'button-transparent',
                 'field' => '',
                 'signup-link' => 'signup-link',
-                'music-link' => 'music-link',
+                'music_link' => 'music-link',
                 'errors' => 'errors',
                 'profile-list-item' => '',
                 'forgot_password_link' => '',
@@ -86,7 +88,9 @@ class HomeController extends Controller
                 'result-title' => 'result-title',
                 'timer-values' => 'timer-values',
                 'timer-value' => 'timer-value',
-                'p-black' => ''
+                'p-black' => '',
+                'timer_values' => 'timer-values',
+                'timer_value' => 'timer-value'
             );
         }
     }

@@ -126,6 +126,9 @@ a.button{
 .timer-values::-webkit-scrollbar{
     width: 10px;
 }
+.timer-values-wb::-webkit-scrollbar{
+    width: 10px;
+}
 /*значение таймера*/
 .timer-value{
     text-align: center;
@@ -594,6 +597,17 @@ a.button{
     border: none;
     color: #0FB0BA;
     background: #FFFFFF;
+    outline: none;
+    text-align: center;
+    height: 4vh;
+    border-radius: 15px;
+    width: 75%;
+}
+.profile-input-wb
+{
+    border: none;
+    color: #ffffff;
+    background: #000000;
     outline: none;
     text-align: center;
     height: 4vh;

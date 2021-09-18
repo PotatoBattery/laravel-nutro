@@ -64,7 +64,7 @@ class NutroMainController extends Controller
         $email = Auth::user()->email;
         $theme = Cookie::get('color');
         $classes = $this->getTheme($theme);
-        return response()->view('nutro.profile', compact('userName', 'email', 'access', 'uid', 'classes'));
+        return response()->view('nutro.profile', compact('userName', 'email', 'access', 'uid', 'classes', 'theme'));
     }
 
     public function statistic(): Response
@@ -152,7 +152,8 @@ class NutroMainController extends Controller
                 'result-title' => 'result-title-wb',
                 'timer-values' => 'timer-values-wb',
                 'timer-value' => 'timer-value-wb',
-                'p-black' =>'p-black'
+                'p-black' =>'p-black',
+                'profile-input' => 'profile-input-wb'
             );
         }else{
             return array(
@@ -178,7 +179,8 @@ class NutroMainController extends Controller
                 'result-title' => 'result-title',
                 'timer-values' => 'timer-values',
                 'timer-value' => 'timer-value',
-                'p-black' => ''
+                'p-black' => '',
+                'profile-input' => 'profile-input-wb'
             );
         }
     }
