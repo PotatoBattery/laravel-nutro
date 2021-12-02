@@ -36,6 +36,9 @@ export default {
             pause: true
         }
     },
+    mounted(){
+        console.log(this.fill)
+    },
     methods: {
         startMeditation()
         {

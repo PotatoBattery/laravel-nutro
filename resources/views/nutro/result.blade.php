@@ -5,7 +5,7 @@
      /** @var  $text */
 @endphp
 @section('content')
-    <div class="wrap wrap-color">
+    <div class="wrap {{ $classes['wrap'] }}">
         @guest
             @include('includes.statistic_not_auth')
         @else
@@ -14,12 +14,12 @@
         @endguest
         <div class="content content-with-statistic-result">
             <div class="block">
-                <div class="statistic-result">
+                <div class="{{  $classes['statistic-result'] }}">
                     <div class="result">
-                        <div class="result-count">
+                        <div class="{{  $classes['result-count'] }}">
                             {{$time}}
                         </div>
-                        <div class="result-title">
+                        <div class="{{ $classes['result-title'] }}">
                             @if($time < 10)
                                 минут медитации
                             @else
@@ -29,22 +29,22 @@
                     </div>
                     @if(!auth()->guest())
                     <div class="result">
-                        <div class="result-count">
+                        <div class="{{  $classes['result-count'] }}">
                             {{ $count }}
                         </div>
-                        <div class="result-title">
+                        <div class="{{ $classes['result-title'] }}">
                             Медитаций подряд
                         </div>
                     </div>
                     @endif
-                    <div class="result-quote">
+                    <div class="{{ $classes['result-quote'] }}">
                         &laquo;{{ $text->quote }}&raquo;
                     </div>
                 </div>
-                <a class="button button-fill button-statistic" href="{{ route('mainpage') }}">Начать заново</a>
-                <button class="button button-transparent button-share button-statistic">Поделиться</button>
+                <a class="button {{ $classes['button-fill'] }} button-statistic" href="{{ route('mainpage') }}">Начать заново</a>
+                <button class="button {{ $classes['button-transparent'] }} button-share button-statistic">Поделиться</button>
                 @if(!auth()->guest())
-                    <a href="{{ route('statistic') }}" class="button button-transparent button-statistic" id="common_statistic">Открыть статистику</a>
+                    <a href="{{ route('statistic') }}" class="button {{ $classes['button-transparent'] }} button-statistic" id="common_statistic">Открыть статистику</a>
                 @else
                     <a href="{{ route('signin') }}" class="signin-link-btn">Войдите, чтобы отслеживать прогресс</a>
                 @endif

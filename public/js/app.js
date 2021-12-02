@@ -2028,6 +2028,9 @@ __webpack_require__.r(__webpack_exports__);
       pause: true
     };
   },
+  mounted: function mounted() {
+    console.log(this.fill);
+  },
   methods: {
     startMeditation: function startMeditation() {
       this.start = false;
@@ -52417,8 +52420,8 @@ var render = function() {
       !_vm.timeSelect
         ? _c("nutro-music-start", {
             attrs: {
-              fill: _vm.classes.button_fill,
-              transparent: _vm.classes.button_transparent,
+              fill: _vm.classes["button-fill"],
+              transparent: _vm.classes["button-transparent"],
               music: _vm.classes.music_link
             }
           })

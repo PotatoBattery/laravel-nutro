@@ -1,7 +1,7 @@
 <template>
     <div>
         <nutro-timer :timer-values="classes.timer_values" :timer-value="classes.timer_value" :text="classes.text_white"></nutro-timer>
-        <nutro-music-start v-if="!timeSelect" :fill="classes.button_fill" :transparent="classes.button_transparent" :music="classes.music_link"></nutro-music-start>
+        <nutro-music-start v-if="!timeSelect" :fill="classes['button-fill']" :transparent="classes['button-transparent']" :music="classes.music_link"></nutro-music-start>
     </div>
 </template>
 
