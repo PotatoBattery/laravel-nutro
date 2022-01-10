@@ -477,6 +477,11 @@ a.button{
     display: inline-block;
     color: #FFFFFF;
 }
+.statistic_data-item-wb{
+    width: 33%;
+    display: inline-block;
+    color: #000000;
+}
 /*значение статистики*/
 .statistic_data-value{
     font-size: 3em;
@@ -704,6 +709,13 @@ a.button{
 /*класс для скрытия элементов*/
 .hidden{
     display: none;
+}
+/*цвет области графика*/
+.chart-background{
+    background: white;
+}
+.chart-background-wb{
+    background: black;
 }
 @media only screen and (min-width: 600px) {
     .content {

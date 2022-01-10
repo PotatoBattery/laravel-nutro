@@ -101,7 +101,7 @@ class NutroMainController extends Controller
         }
         $theme = Cookie::get('color');
         $classes = $this->getTheme($theme);
-        return response()->view('nutro.statistic', compact('days', 'count', 'time', 'uid', 'classes'));
+        return response()->view('nutro.statistic', compact('days', 'count', 'time', 'uid', 'classes', 'theme'));
     }
 
     public function result(Request $request)
@@ -153,7 +153,9 @@ class NutroMainController extends Controller
                 'timer-values' => 'timer-values-wb',
                 'timer-value' => 'timer-value-wb',
                 'p-black' =>'p-black',
-                'profile-input' => 'profile-input-wb'
+                'profile-input' => 'profile-input-wb',
+                'statistic_data-item' => 'statistic_data-item-wb',
+                'chart-background' => 'chart-background-wb'
             );
         }else{
             return array(
@@ -180,7 +182,9 @@ class NutroMainController extends Controller
                 'timer-values' => 'timer-values',
                 'timer-value' => 'timer-value',
                 'p-black' => '',
-                'profile-input' => 'profile-input-wb'
+                'profile-input' => 'profile-input',
+                'statistic_data-item' => 'statistic_data-item',
+                'chart-background' => 'chart-background'
             );
         }
     }

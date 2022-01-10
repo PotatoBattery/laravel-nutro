@@ -1,7 +1,7 @@
 @extends('layouts.nutro')
 
 @section('content')
-    <div class="wrap wrap-color">
+    <div class="wrap {{ $classes['wrap'] }}">
         <div class="arrow icon">
             <a href="{{ route('profile') }}">
                 <svg viewBox="190 150 100.28 70.28">
@@ -10,27 +10,27 @@
             </a>
         </div>
         <div class="title-container">
-            <div class="page-title text-white">
+            <div class="page-title {{ $classes['text-white'] }}">
                 <h1 class="page-title-sm">{{ __('statistic.title') }}</h1>
             </div>
         </div>
         <div class="content content-with-common-statistic-result">
             <div class="block">
                 <div class="statistic_data">
-                    <div class="statistic_data-item">
+                    <div class="{{ $classes['statistic_data-item'] }}">
                         <div class="statistic_data-value">{{ $time }}</div>
                         <div class="statistic_data-message">{{ __('statistic.minutes') }}</div>
                     </div>
-                    <div class="statistic_data-item">
+                    <div class="{{ $classes['statistic_data-item'] }}">
                         <div class="statistic_data-value">{{ $count }}</div>
                         <div class="statistic_data-message">{{ __('statistic.meditations') }}</div>
                     </div>
-                    <div class="statistic_data-item">
+                    <div class="{{ $classes['statistic_data-item'] }}">
                         <div class="statistic_data-value">{{ $days }}</div>
                         <div class="statistic_data-message">{{ __('statistic.days') }}</div>
                     </div>
                 </div>
-                <nutro-chart :uid="{{ $uid }}" translate="{{ __('statistic.statistic') }}"></nutro-chart>
+                <nutro-chart :uid="{{ $uid }}" translate="{{ __('statistic.statistic') }}" :theme="{{ $theme == 'colored' ? 'true' : 'false' }}"></nutro-chart>
                 <button class="button button-transparent button-share button-statistic">{{ __('statistic.share') }}</button>
             </div>
         </div>

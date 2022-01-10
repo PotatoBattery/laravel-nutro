@@ -3,7 +3,8 @@
         <v-chart v-if="show"
                  :chartData="chartData"
                  :chartOptions="chartOptions"
-                 :chartType="chartType"/>
+                 :chartType="chartType"
+                 :theme="chartColor"/>
     </div>
 </template>
 
@@ -18,11 +19,16 @@ export default {
         translate: {
             type: String,
             require: true
-        }
+        },
+        theme: {
+            type: Boolean,
+            require: true
+        },
     },
     data()
     {
         return {
+            chartColor: '',
             chartType: 'line',
             chartData: {
                 labels: [],
@@ -46,6 +52,9 @@ export default {
         }
     },
     mounted() {
+        this.chartColor = this.theme ? 'chart-background' : 'chart-background-wb';
+        this.chartData.datasets[0].borderColor = this.theme ? 'rgb(75, 192, 192)' : 'rgb(255 255 255)';
+        this.chartOptions.legend.labels.fontColor = this.theme ? '#686956' : '#FFFFFF';
         this.getChart();
     },
     methods: {

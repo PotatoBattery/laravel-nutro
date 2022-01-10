@@ -1,6 +1,6 @@
 <template>
     <div>
-        <canvas class="background-color">
+        <canvas :class="theme">
         </canvas>
     </div>
 </template>
@@ -12,7 +12,8 @@ export default {
     props: {
         chartType:String,
         chartData:Object,
-        chartOptions:Object
+        chartOptions:Object,
+        theme: String,
     },
     mounted() {
         let {chartType, chartData, chartOptions} = this;
@@ -32,7 +33,4 @@ export default {
 </script>
 
 <style scoped>
-.background-color{
-    background: white;
-}
 </style>
