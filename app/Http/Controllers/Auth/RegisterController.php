@@ -57,17 +57,25 @@ class RegisterController extends Controller
     }
 
     /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\Models\User
+     * @param array $data
+     * @return mixed
      */
     protected function create(array $data)
     {
-        mail($data['email'], 'registration', 'test', env('MAIL_FROM_ADDRESS', 'laravel@gmail.com'));
-        return User::create([
+//        mail($data['email'], 'registration', 'test', env('MAIL_FROM_ADDRESS', 'laravel@gmail.com'));
+        $user = User::create([
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+        $email_data = array(
+            'name' => 'Новый пользователь',
+            'email' => $data['email']
+        );
+        Mail::send('nutro.emails.welcome', $email_data, function ($message) use ($email_data){
+            $message->to($email_data['email'], $email_data['name'])
+                ->subject('Welcome to Nutro')
+                ->from(env('MAIL_FROM_ADDRESS', 'laravel@gmail.com'), env('MAIL_FROM_NAME', 'laravel@gmail.com'));
+        });
+        return $user;
     }
 }
