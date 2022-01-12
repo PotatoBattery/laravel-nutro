@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\Auth\LoginController;
 use \App\Http\Controllers\Nutro\NutroMainController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,16 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
     Route::get('/signup', [NutroMainController::class, 'signup'])->name('signup');
     Route::get('/forgot_password', [NutroMainController::class, 'forgotPassword'])->name('forgot_password');
     Auth::routes();
-    Route::get('/profile', [NutroMainController::class, 'profile'])->middleware('auth')->name('profile');
-    Route::get('/statistic', [NutroMainController::class, 'statistic'])->middleware('auth')->name('statistic');
+    Route::get('/profile', [NutroMainController::class, 'profile'])->middleware(['auth', 'verified'])->name('profile');
+    Route::get('/statistic', [NutroMainController::class, 'statistic'])->middleware(['auth', 'verified'])->name('statistic');
 });
+
+Route::get('/email/verify', function (){
+   return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+
+    return redirect('/');
+})->middleware(['auth', 'signed'])->name('verification.verify');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -62,20 +63,9 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-//        mail($data['email'], 'registration', 'test', env('MAIL_FROM_ADDRESS', 'laravel@gmail.com'));
-        $user = User::create([
+        return User::create([
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-        $email_data = array(
-            'name' => 'Новый пользователь',
-            'email' => $data['email']
-        );
-        Mail::send('nutro.emails.welcome', $email_data, function ($message) use ($email_data){
-            $message->to($email_data['email'], $email_data['name'])
-                ->subject('Welcome to Nutro')
-                ->from(env('MAIL_FROM_ADDRESS', 'laravel@gmail.com'), env('MAIL_FROM_NAME', 'laravel@gmail.com'));
-        });
-        return $user;
     }
 }
