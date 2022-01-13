@@ -24,10 +24,9 @@
   <component name="ChangeListManager">
     <list default="true" id="582130ea-53c6-4d2a-a8dd-2ea7bc06ad19" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/nutro/emails/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/nutro/emails/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/passwords.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/passwords.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/forgot_password.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/forgot_password.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -236,6 +235,7 @@
       <workItem from="1641794330911" duration="4828000" />
       <workItem from="1641878652801" duration="2565000" />
       <workItem from="1641965337971" duration="3100000" />
+      <workItem from="1642052181153" duration="3796000" />
     </task>
     <servers />
   </component>
