@@ -19,7 +19,13 @@
                 @if($access)
                     <nutro-profile-item label="{{ __('profile.name') }}" field="{{ $userName[0] }}" field-name="firstname" :uid="{{ $uid }}" selected-class="{{ 'profile-list-item '. $classes['profile-list-item'] }}" :theme="{{ $theme == 'colored' ? 'true' : 'false' }}" field-theme="{{ $classes['profile-input'] }}"> </nutro-profile-item>
                     <nutro-profile-item label="{{ __('profile.surname') }}" field="{{ $userName[1] }}" field-name="secondname" :uid="{{ $uid }}" selected-class="{{ 'profile-list-item '. $classes['profile-list-item'] }}" :theme="{{ $theme == 'colored' ? 'true' : 'false' }}" field-theme="{{ $classes['profile-input'] }}"> </nutro-profile-item>
-                    <nutro-profile-item label="{{ __('profile.email') }}" field="{{ $email }}" field-name="email" :uid="{{ $uid }}" selected-class="{{ 'profile-list-item '. $classes['profile-list-item'] }}" :theme="{{ $theme == 'colored' ? 'true' : 'false' }}" field-theme="{{ $classes['profile-input'] }}"> </nutro-profile-item>
+{{--                    <nutro-profile-item label="{{ __('profile.email') }}" field="{{ $email }}" field-name="email" :uid="{{ $uid }}" selected-class="{{ 'profile-list-item '. $classes['profile-list-item'] }}" :theme="{{ $theme == 'colored' ? 'true' : 'false' }}" field-theme="{{ $classes['profile-input'] }}"> </nutro-profile-item>--}}
+                    <div class="profile-list-item {{ $classes['profile-list-item'] }}">
+                        <label for="firstname">{{ __('profile.email') }}: </label>
+                        <a href="" class="email-link {{ $classes['menu-items_link'] }}">
+                            {{ $email }}
+                        </a>
+                    </div>
                     <div class="profile-list-item {{ $classes['profile-list-item'] }}">
                         <a href="{{ route('forgot_password') }}" class="profile-logout {{ $classes['menu-items_link'] }}">{{ __('profile.forgot') }}</a>
                     </div>
@@ -42,6 +48,11 @@
                             {{ $email }}
                         </a>
                     </div>
+                @endif
+                @if($isAdmin == 1)
+                        <div class="profile-list-item {{ $classes['profile-list-item'] }}">
+                            <a href="{{ route('admin_dashboard') }}" class="profile-logout {{ $classes['menu-items_link'] }}">{{ __('profile.admin') }}</a>
+                        </div>
                 @endif
                 <div class="profile-list-item">
                     <a href="{{ route('logout') }}" onclick="event.preventDefault();

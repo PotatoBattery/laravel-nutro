@@ -6,5 +6,6 @@ return [
     'surname' => 'Surname',
     'email' => 'E-mail',
     'logout' => 'Logout',
-    'forgot' => 'Change password'
+    'forgot' => 'Change password',
+    'admin' => 'Admin panel'
 ];

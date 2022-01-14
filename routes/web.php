@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\Auth\LoginController;
 use \App\Http\Controllers\Nutro\NutroMainController;
+use \App\Http\Controllers\Nutro\Admin\NutroAdminController;
 use Illuminate\Support\Str;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -42,6 +43,10 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
     Auth::routes();
     Route::get('/profile', [NutroMainController::class, 'profile'])->middleware(['auth', 'verified'])->name('profile');
     Route::get('/statistic', [NutroMainController::class, 'statistic'])->middleware(['auth', 'verified'])->name('statistic');
+
+    Route::group(['middleware' => 'admin'], function(){
+        Route::get('admin/', [NutroAdminController::class, 'index'])->name('admin_dashboard');
+    });
 });
 
 Route::get('/email/verify', function (){

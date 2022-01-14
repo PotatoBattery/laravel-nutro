@@ -56,6 +56,7 @@ class NutroMainController extends Controller
         $access = Auth::user()->provider_id == null;
         $uid = Auth::user()->id;
         $userNameData = Auth::user()->name;
+        $isAdmin = Auth::user()->is_admin;
         if($userNameData != null){
             $userName = explode(' ', $userNameData);
         }else{
@@ -64,7 +65,7 @@ class NutroMainController extends Controller
         $email = Auth::user()->email;
         $theme = Cookie::get('color');
         $classes = $this->getTheme($theme);
-        return response()->view('nutro.profile', compact('userName', 'email', 'access', 'uid', 'classes', 'theme'));
+        return response()->view('nutro.profile', compact('userName', 'email', 'access', 'uid', 'classes', 'theme', 'isAdmin'));
     }
 
     public function statistic(): Response
