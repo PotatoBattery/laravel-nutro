@@ -28,7 +28,7 @@ class NutroAdminController extends Controller
 
         $file->ru_name = $request->ruName;
         $file->en_name = $request->enName;
-        $file->file_path = '/storage/' . $filePath;
+        $file->file_path = $filePath;
 
         $file->save();
 

@@ -2007,6 +2007,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "MusicSelectAndStartComponent",
   props: {
@@ -2026,23 +2037,127 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       start: true,
-      pause: true
+      pause: true,
+      select: false,
+      sound: [],
+      selected: {
+        link: 'not-file-link',
+        title: 'Без звука'
+      },
+      audioSrc: 'not-file-link'
     };
   },
   mounted: function mounted() {
-    console.log(this.fill);
+    this.getMusic();
+    var currentComponent = this;
+    this.$root.$on('selected-music', function (data) {
+      currentComponent.$nextTick(function () {
+        return currentComponent.scrollToElement(data);
+      });
+    });
+    this.$root.$on('return_link', function (link, name) {
+      currentComponent.selected.link = link;
+      currentComponent.selected.title = name;
+      currentComponent.select = false;
+    });
   },
   methods: {
+    getMusic: function getMusic() {
+      var _this = this;
+
+      axios.get('/api/music').then(function (response) {
+        _this.sound = response.data;
+      });
+    },
     startMeditation: function startMeditation() {
       this.start = false;
+      if (this.selected.link !== 'not-file-link') this.$refs.audioElement.play();
       this.$root.$emit('first_start', this.$el);
     },
     meditationControl: function meditationControl() {
       this.pause = !this.pause;
+
+      if (this.selected.link !== 'not-file-link') {
+        this.pause ? this.$refs.audioElement.play() : this.$refs.audioElement.pause();
+      }
+
       this.pause ? this.$root.$emit('start', this.$el) : this.$root.$emit('pause', this.$el);
     },
     endMeditation: function endMeditation() {
+      if (this.selected.link !== 'not-file-link') this.$refs.audioElement.stop();
       this.$root.$emit('end', this.$el);
+    },
+    showSelect: function showSelect() {
+      if (this.start) {
+        this.select = true;
+      }
+    },
+    prepareSelected: function prepareSelected(link) {
+      return link === this.selected.link;
+    },
+    scrollToElement: function scrollToElement(elem) {
+      var el = elem;
+
+      if (el) {
+        el.scrollIntoView({
+          block: "center",
+          behavior: 'smooth'
+        });
+      }
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/nutro/MusicValueComponent.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/nutro/MusicValueComponent.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "MusicValueComponent",
+  props: {
+    link: {
+      type: String,
+      required: true
+    },
+    musicName: {
+      type: String,
+      required: true
+    },
+    selected: {
+      type: Boolean,
+      required: true
+    }
+  },
+  data: function data() {
+    return {
+      itemClass: ''
+    };
+  },
+  mounted: function mounted() {
+    this.itemClass = this.selected ? 'music-value timer-value-selected' : 'music-value';
+
+    if (this.selected) {
+      this.$root.$emit('selected-music', this.$el);
+    }
+  },
+  methods: {
+    selectMusic: function selectMusic() {
+      this.$root.$emit('return_link', this.link, this.musicName);
     }
   }
 });
@@ -2513,6 +2628,7 @@ Vue.component('nutro-music-start', __webpack_require__(/*! ./components/nutro/Mu
 Vue.component('nutro-chart', __webpack_require__(/*! ./components/nutro/NutroLineChart */ "./resources/js/components/nutro/NutroLineChart.vue").default);
 Vue.component('nutro-profile-item', __webpack_require__(/*! ./components/nutro/ProfileComponent */ "./resources/js/components/nutro/ProfileComponent.vue").default);
 Vue.component('nutro-color-control', __webpack_require__(/*! ./components/nutro/ColorControlComponent */ "./resources/js/components/nutro/ColorControlComponent.vue").default);
+Vue.component('nutro-music-value', __webpack_require__(/*! ./components/nutro/MusicValueComponent */ "./resources/js/components/nutro/MusicValueComponent.vue").default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -51784,6 +51900,45 @@ component.options.__file = "resources/js/components/nutro/MusicSelectAndStartCom
 
 /***/ }),
 
+/***/ "./resources/js/components/nutro/MusicValueComponent.vue":
+/*!***************************************************************!*\
+  !*** ./resources/js/components/nutro/MusicValueComponent.vue ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _MusicValueComponent_vue_vue_type_template_id_6a1cff31_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MusicValueComponent.vue?vue&type=template&id=6a1cff31&scoped=true& */ "./resources/js/components/nutro/MusicValueComponent.vue?vue&type=template&id=6a1cff31&scoped=true&");
+/* harmony import */ var _MusicValueComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MusicValueComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/nutro/MusicValueComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _MusicValueComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _MusicValueComponent_vue_vue_type_template_id_6a1cff31_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _MusicValueComponent_vue_vue_type_template_id_6a1cff31_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "6a1cff31",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/nutro/MusicValueComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/nutro/NutroLineChart.vue":
 /*!**********************************************************!*\
   !*** ./resources/js/components/nutro/NutroLineChart.vue ***!
@@ -52006,6 +52161,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/nutro/MusicValueComponent.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/nutro/MusicValueComponent.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MusicValueComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MusicValueComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/nutro/MusicValueComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MusicValueComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
 /***/ "./resources/js/components/nutro/NutroLineChart.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************!*\
   !*** ./resources/js/components/nutro/NutroLineChart.vue?vue&type=script&lang=js& ***!
@@ -52160,6 +52331,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MusicSelectAndStartComponent_vue_vue_type_template_id_2946edfe_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MusicSelectAndStartComponent_vue_vue_type_template_id_2946edfe_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MusicSelectAndStartComponent.vue?vue&type=template&id=2946edfe&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/nutro/MusicSelectAndStartComponent.vue?vue&type=template&id=2946edfe&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/nutro/MusicValueComponent.vue?vue&type=template&id=6a1cff31&scoped=true&":
+/*!**********************************************************************************************************!*\
+  !*** ./resources/js/components/nutro/MusicValueComponent.vue?vue&type=template&id=6a1cff31&scoped=true& ***!
+  \**********************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MusicValueComponent_vue_vue_type_template_id_6a1cff31_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MusicValueComponent_vue_vue_type_template_id_6a1cff31_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MusicValueComponent_vue_vue_type_template_id_6a1cff31_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MusicValueComponent.vue?vue&type=template&id=6a1cff31&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/nutro/MusicValueComponent.vue?vue&type=template&id=6a1cff31&scoped=true&");
 
 
 /***/ }),
@@ -52389,9 +52577,46 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "content content-with-timer" }, [
     _c("div", { staticClass: "block" }, [
-      _c("a", { class: _vm.music, attrs: { href: "#" } }, [
-        _vm._v("звуки леса")
-      ]),
+      _c("audio", {
+        ref: "audioElement",
+        attrs: { src: _vm.selected.link, loop: "" }
+      }),
+      _vm._v(" "),
+      !_vm.select
+        ? _c(
+            "a",
+            {
+              class: _vm.music,
+              attrs: { href: "#" },
+              on: { click: _vm.showSelect }
+            },
+            [_vm._v(_vm._s(_vm.selected.title))]
+          )
+        : _c(
+            "div",
+            { staticClass: "music-selector" },
+            [
+              _c("nutro-music-value", {
+                attrs: {
+                  link: "not-file-link",
+                  "music-name": "Без звука",
+                  selected: _vm.prepareSelected("not-file-link")
+                }
+              }),
+              _vm._v(" "),
+              _vm._l(_vm.sound, function(item) {
+                return _c("nutro-music-value", {
+                  key: item.id,
+                  attrs: {
+                    link: "/storage/" + item.file_path,
+                    "music-name": item.ru_name,
+                    selected: _vm.prepareSelected("/storage/" + item.file_path)
+                  }
+                })
+              })
+            ],
+            2
+          ),
       _vm._v(" "),
       _vm.start
         ? _c(
@@ -52437,6 +52662,33 @@ var render = function() {
           ])
         : _vm._e()
     ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/nutro/MusicValueComponent.vue?vue&type=template&id=6a1cff31&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/nutro/MusicValueComponent.vue?vue&type=template&id=6a1cff31&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { class: _vm.itemClass, on: { click: _vm.selectMusic } }, [
+    _vm._v("\n    " + _vm._s(_vm.musicName) + "\n")
   ])
 }
 var staticRenderFns = []

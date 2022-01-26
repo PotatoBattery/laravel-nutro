@@ -149,8 +149,28 @@ a.button{
     height: 31%;
 }
 /*выбранное значение*/
-.timer-value-selected{
+.timer-value-selected, .music-value-selected{
     text-decoration: underline;
+}
+/*селектор музыки*/
+.music-selector{
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background: #FFFFFF;
+    margin: 0 auto;
+    border-radius: 45px;
+    overflow-y: auto;
+}
+/*значение музыки*/
+.music-value
+{
+    margin: 0 auto;
+    text-align: center;
+    color: #0FB0BA;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    cursor: pointer;
 }
 /*контейнер для основного контента страницы*/
 .content {

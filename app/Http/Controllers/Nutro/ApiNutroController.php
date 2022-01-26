@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Nutro;
 
 use App\Http\Controllers\Controller;
+use App\Models\Nutro\MusicFile;
 use App\Models\Nutro\Statistic;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
@@ -51,6 +52,10 @@ class ApiNutroController extends Controller
     public function setColorTheme(Request $request)
     {
         Cookie::queue('color', $request->get('theme'), 43200);
-//        return  Cookie::get('color');
+    }
+
+    public function getMusic()
+    {
+        return response()->json(MusicFile::all());
     }
 }
