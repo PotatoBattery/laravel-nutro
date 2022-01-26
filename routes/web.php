@@ -46,6 +46,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 
     Route::group(['middleware' => 'admin'], function(){
         Route::get('admin/', [NutroAdminController::class, 'index'])->name('admin_dashboard');
+        Route::get('admin/music/add/', [NutroAdminController::class, 'musicAdd'])->name('admin.music.add');
+        Route::post('admin/music/store', [NutroAdminController::class, 'musicStore'])->name('admin.music.store');
     });
 });
 
