@@ -31,10 +31,23 @@ a.button{
 
 /*контейнер для заголовка*/
 .title-container {
+    /*position: absolute;*/
+    /*width: 100%;*/
+    /*height: 10%;*/
+    /*top: 25%;*/
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*bottom: 10vw;*/
+    /*left: 0;*/
+    /*right: 0;*/
+    /*margin: auto;*/
     position: absolute;
-    width: 100%;
-    height: 10%;
-    top: 25%;
+    top: 0;
+    bottom: 20em;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: fit-content;
 }
 
 /*контейнер для заголовка статистики*/
@@ -100,25 +113,46 @@ a.button{
 }
 /*значения таймера*/
 .timer-values{
+    /*background: #FFFFFF;*/
+    /*position: absolute;*/
+    /*width: 60%;*/
+    /*margin: 0 20%;*/
+    /*height: 35%;*/
+    /*top: 25%;*/
+    /*border-radius: 15%;*/
+    /*overflow-y: auto;*/
     background: #FFFFFF;
     position: absolute;
-    width: 60%;
-    margin: 0 20%;
-    height: 35%;
-    top: 25%;
-    border-radius: 15%;
     overflow-y: auto;
+    width: calc(100vw - 90%);
+    height: 20vh;
+    border-radius: 100px;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
 }
 
 .timer-values-wb{
     background: #000000;
+    /*position: absolute;*/
+    /*width: 60%;*/
+    /*margin: 0 20%;*/
+    /*height: 35%;*/
+    /*top: 25%;*/
+    /*border-radius: 15%;*/
+    /*overflow-y: auto;*/
     position: absolute;
-    width: 60%;
-    margin: 0 20%;
-    height: 35%;
-    top: 25%;
-    border-radius: 15%;
     overflow-y: auto;
+    width: calc(100vw - 90%);
+    height: 20vh;
+    border-radius: 100px;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
 }
 .timer-values::-webkit-scrollbar{
     width: 10px;
@@ -171,11 +205,19 @@ a.button{
 }
 /*контейнер для основного контента страницы*/
 .content {
+    /*position: absolute;*/
+    /*width: 75%;*/
+    /*margin: 0 12.5%;*/
+    /*height: 45%;*/
+    /*top: 45%;*/
+    width: 50%;
+    margin: auto;
     position: absolute;
-    width: 75%;
-    margin: 0 12.5%;
-    height: 45%;
-    top: 45%;
+    top: 25em;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40vh;
 }
 /*контейнер для основного контента страницы без заголовка страницы*/
 .content-without-title{
@@ -224,12 +266,15 @@ a.button{
 .button {
     width: inherit;
     height: 12%;
-    margin: 0 0 5% 0;
+    /*margin: 0 0 5% 0;*/
     font-size: 1em;
     outline: none;
     border-radius: 45px;
     font-weight: 400;
     cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
 }
 
 /*кнопка залитая цветом*/
@@ -404,7 +449,8 @@ a.button{
 }
 /*шестеренка для настроек*/
 .settings{
-    width: 8%;
+    /*width: 8%;*/
+    width: 3em;
     height: auto;
     position: absolute;
     bottom: 2%;
@@ -412,15 +458,17 @@ a.button{
 }
 /*статистика*/
 .statistic{
-    width: 8%;
+    /*width: 8%;*/
+    width: 3em;
     height: auto;
     position: absolute;
-    top: 2%;
-    right: 2%;
+    top: 2.2%;
+    right: 2em;
 }
 /*стрелка*/
 .arrow{
-    width: 8%;
+    /*width: 8%;*/
+    width: 3em;
     height: auto;
     position: absolute;
     top: 2%;
@@ -428,11 +476,12 @@ a.button{
 }
 /*профиль*/
 .profile{
-    width: 8%;
+    /*width: 8%;*/
+    width: 3em;
     height: auto;
     position: absolute;
     top: 2%;
-    right: 4%
+    right: 5em;
 }
 /*карандаш*/
 .pen{
@@ -467,7 +516,7 @@ a.button{
 }
 /*контент с таймером*/
 .content-with-timer{
-    margin-top: 0;
+    /*margin-top: 5em;*/
 }
 /*блок для результата статистики*/
 .statistic-result{
@@ -738,17 +787,17 @@ a.button{
     background: black;
 }
 @media only screen and (min-width: 600px) {
-    .content {
-        position: absolute;
-        width: 45%;
-        margin: 0 27.5%;
-        height: 45%;
-        top: 55%;
-    }
+    /*.content {*/
+    /*    position: absolute;*/
+    /*    width: 45%;*/
+    /*    margin: 0 27.5%;*/
+    /*    height: 45%;*/
+    /*    top: 55%;*/
+    /*}*/
 
-    .content-with-timer{
-        margin-top: 0;
-    }
+    /*.content-with-timer{*/
+    /*    margin-top: 0;*/
+    /*}*/
 
     .page-title-l {
         font-size: 8.5em !important;
@@ -792,12 +841,12 @@ a.button{
         margin: 0 0 2% 0;
     }
 
-    .settings,
-    .statistic,
-    .arrow,
-    .profile{
-        width: 5%;
-    }
+    /*.settings,*/
+    /*.statistic,*/
+    /*.arrow,*/
+    /*.profile{*/
+    /*    width: 5%;*/
+    /*}*/
 
     .block p {
         font-size: 1.1em;
@@ -832,17 +881,17 @@ a.button{
 
 
 @media only screen and (min-width: 768px) {
-    .content {
-        position: absolute;
-        width: 45%;
-        margin: 0 27.5%;
-        height: 45%;
-        top: 55%;
-    }
+    /*.content {*/
+    /*    position: absolute;*/
+    /*    width: 45%;*/
+    /*    margin: 0 27.5%;*/
+    /*    height: 45%;*/
+    /*    top: 55%;*/
+    /*}*/
 
-    .content-with-timer{
-        margin-top: 0;
-    }
+    /*.content-with-timer{*/
+    /*    margin-top: 0;*/
+    /*}*/
 
     .page-title-l {
         font-size: 8.5em !important;
@@ -892,12 +941,12 @@ a.button{
         width: 65%;
         margin: 0 17.5% 2% 17.5%;
     }
-    .settings,
-    .statistic,
-    .arrow,
-    .profile{
-        width: 3%;
-    }
+    /*.settings,*/
+    /*.statistic,*/
+    /*.arrow,*/
+    /*.profile{*/
+    /*    width: 3%;*/
+    /*}*/
 
     .block p {
         font-size: 1.1em;
@@ -939,17 +988,17 @@ a.button{
 }
 
 @media only screen and (min-width: 1024px) {
-    .content {
-        position: absolute;
-        width: 45%;
-        margin: 0 27.5%;
-        height: 45%;
-        top: 55%;
-    }
+    /*.content {*/
+    /*    position: absolute;*/
+    /*    width: 45%;*/
+    /*    margin: 0 27.5%;*/
+    /*    height: 45%;*/
+    /*    top: 55%;*/
+    /*}*/
 
-    .content-with-timer{
-        margin-top: 0;
-    }
+    /*.content-with-timer{*/
+    /*    margin-top: 0;*/
+    /*}*/
 
     .content-without-title{
         top: 35%;
@@ -1003,12 +1052,12 @@ a.button{
         width: 50%;
         margin: 0 25% 2% 25%;
     }
-    .settings,
-    .statistic,
-    .arrow,
-    .profile{
-        width: 3%;
-    }
+    /*.settings,*/
+    /*.statistic,*/
+    /*.arrow,*/
+    /*.profile{*/
+    /*    width: 3%;*/
+    /*}*/
 
     .statistic-result{
         width: 55%;
@@ -1037,17 +1086,17 @@ a.button{
 }
 
 @media only screen and (min-width: 1280px) {
-    .content {
-        position: absolute;
-        width: 45%;
-        margin: 0 27.5%;
-        height: 45%;
-        top: 55%;
-    }
+    /*.content {*/
+    /*    position: absolute;*/
+    /*    width: 45%;*/
+    /*    margin: 0 27.5%;*/
+    /*    height: 45%;*/
+    /*    top: 55%;*/
+    /*}*/
 
-    .content-with-timer{
-        margin-top: 0;
-    }
+    /*.content-with-timer{*/
+    /*    margin-top: 0;*/
+    /*}*/
 
     .content-without-title{
         top: 35%;
@@ -1096,12 +1145,12 @@ a.button{
         width: 40%;
         margin: 0 30% 2% 30%
     }
-    .settings,
-    .statistic,
-    .arrow,
-    .profile{
-        width: 2%;
-    }
+    /*.settings,*/
+    /*.statistic,*/
+    /*.arrow,*/
+    /*.profile{*/
+    /*    width: 2%;*/
+    /*}*/
 
     .statistic-result{
         width: 45%;
@@ -1131,17 +1180,17 @@ a.button{
 }
 
 @media only screen and (min-width: 1440px) {
-    .content {
-        position: absolute;
-        width: 45%;
-        margin: 0 27.5%;
-        height: 45%;
-        top: 45%;
-    }
+    /*.content {*/
+    /*    position: absolute;*/
+    /*    width: 45%;*/
+    /*    margin: 0 27.5%;*/
+    /*    height: 45%;*/
+    /*    top: 45%;*/
+    /*}*/
 
-    .content-with-timer{
-        margin-top: 0;
-    }
+    /*.content-with-timer{*/
+    /*    margin-top: 0;*/
+    /*}*/
 
     .content-without-title{
         top: 35%;
@@ -1195,12 +1244,12 @@ a.button{
         width: 40%;
         margin: 0 27.5% 2% 29.5%;
     }
-    .settings,
-    .statistic,
-    .arrow,
-    .profile{
-        width: 1.5%;
-    }
+    /*.settings,*/
+    /*.statistic,*/
+    /*.arrow,*/
+    /*.profile{*/
+    /*    width: 1.5%;*/
+    /*}*/
 
     .statistic-result{
         width: 40%;

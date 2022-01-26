@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="timer-container">
         <div class="title-container" v-if="timer">
             <div :class="'page-title ' + text" v-if="!timerWork">
                 <h1 class="page-title-l timer" v-on:click="startSelectTime">{{ value }}</h1>
@@ -148,5 +148,14 @@ export default {
 </script>
 
 <style scoped>
-
+    .timer-container{
+        width: 50%;
+        height: fit-content;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
 </style>
