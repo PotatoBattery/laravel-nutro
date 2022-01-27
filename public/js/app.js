@@ -1958,11 +1958,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "IndexComponent",
   props: {
     classes: {
       type: Object,
+      require: true
+    },
+    locale: {
+      type: String,
       require: true
     }
   },
@@ -2018,6 +2027,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "MusicSelectAndStartComponent",
   props: {
@@ -2032,6 +2051,18 @@ __webpack_require__.r(__webpack_exports__);
     music: {
       type: String,
       require: true
+    },
+    musicSelector: {
+      type: String,
+      require: true
+    },
+    musicSelectorValue: {
+      type: String,
+      require: true
+    },
+    locale: {
+      type: String,
+      require: true
     }
   },
   data: function data() {
@@ -2042,7 +2073,7 @@ __webpack_require__.r(__webpack_exports__);
       sound: [],
       selected: {
         link: 'not-file-link',
-        title: 'Без звука'
+        title: this.locale === 'ru' ? 'Без звука' : 'No sound'
       },
       audioSrc: 'not-file-link'
     };
@@ -2141,6 +2172,10 @@ __webpack_require__.r(__webpack_exports__);
     selected: {
       type: Boolean,
       required: true
+    },
+    musicClass: {
+      type: String,
+      required: true
     }
   },
   data: function data() {
@@ -2149,7 +2184,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
-    this.itemClass = this.selected ? 'music-value timer-value-selected' : 'music-value';
+    this.itemClass = this.selected ? this.musicClass + ' timer-value-selected' : this.musicClass;
 
     if (this.selected) {
       this.$root.$emit('selected-music', this.$el);
@@ -2421,6 +2456,10 @@ __webpack_require__.r(__webpack_exports__);
     text: {
       type: String,
       require: true
+    },
+    locale: {
+      type: String,
+      require: true
     }
   },
   data: function data() {
@@ -2503,7 +2542,7 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       var time = minutes + '.' + seconds;
-      window.location.href = '/result?time=' + time;
+      window.location.href = '/' + this.locale + '/result?time=' + time;
     },
     workWithTime: function workWithTime() {
       var time = this.value.split(':'),
@@ -52604,7 +52643,8 @@ var render = function() {
         attrs: {
           "timer-values": _vm.classes.timer_values,
           "timer-value": _vm.classes.timer_value,
-          text: _vm.classes.text_white
+          text: _vm.classes.text_white,
+          locale: _vm.locale
         }
       }),
       _vm._v(" "),
@@ -52613,7 +52653,10 @@ var render = function() {
             attrs: {
               fill: _vm.classes["button-fill"],
               transparent: _vm.classes["button-transparent"],
-              music: _vm.classes.music_link
+              music: _vm.classes.music_link,
+              "music-selector": _vm.classes["music-selector"],
+              "music-selector-value": _vm.classes["music-value"],
+              locale: _vm.locale
             }
           })
         : _vm._e()
@@ -52663,12 +52706,13 @@ var render = function() {
           )
         : _c(
             "div",
-            { staticClass: "music-selector" },
+            { class: _vm.musicSelector },
             [
               _c("nutro-music-value", {
                 attrs: {
                   link: "not-file-link",
-                  "music-name": "Без звука",
+                  "music-name": _vm.locale === "ru" ? "Без звука" : "No sound",
+                  "music-class": _vm.musicSelectorValue,
                   selected: _vm.prepareSelected("not-file-link")
                 }
               }),
@@ -52678,7 +52722,9 @@ var render = function() {
                   key: item.id,
                   attrs: {
                     link: "/storage/" + item.file_path,
-                    "music-name": item.ru_name,
+                    "music-name":
+                      _vm.locale === "ru" ? item.ru_name : item.en_name,
+                    "music-class": _vm.musicSelectorValue,
                     selected: _vm.prepareSelected("/storage/" + item.file_path)
                   }
                 })
@@ -52694,7 +52740,13 @@ var render = function() {
               class: "button " + _vm.fill + " button-s button-start",
               on: { click: _vm.startMeditation }
             },
-            [_vm._v("Начать")]
+            [
+              _vm._v(
+                "\n            " +
+                  _vm._s(_vm.locale === "ru" ? "Начать" : "Start") +
+                  "\n        "
+              )
+            ]
           )
         : _vm._e(),
       _vm._v(" "),
@@ -52705,7 +52757,13 @@ var render = function() {
               class: "button " + _vm.transparent + " button-pause",
               on: { click: _vm.meditationControl }
             },
-            [_vm._v("Пауза")]
+            [
+              _vm._v(
+                "\n            " +
+                  _vm._s(_vm.locale === "ru" ? "Пауза" : "Pause") +
+                  "\n        "
+              )
+            ]
           )
         : _vm._e(),
       _vm._v(" "),
@@ -52717,7 +52775,13 @@ var render = function() {
                 class: "button " + _vm.fill + " button-s button-start",
                 on: { click: _vm.meditationControl }
               },
-              [_vm._v("Продолжить")]
+              [
+                _vm._v(
+                  "\n                " +
+                    _vm._s(_vm.locale === "ru" ? "Продолжить" : "Continue") +
+                    "\n            "
+                )
+              ]
             ),
             _vm._v(" "),
             _c(
@@ -52726,7 +52790,13 @@ var render = function() {
                 class: "button " + _vm.fill + " button-s button-end",
                 on: { click: _vm.endMeditation }
               },
-              [_vm._v("Закончить")]
+              [
+                _vm._v(
+                  "\n                " +
+                    _vm._s(_vm.locale === "ru" ? "Закончить" : "Finish") +
+                    "\n            "
+                )
+              ]
             )
           ])
         : _vm._e()

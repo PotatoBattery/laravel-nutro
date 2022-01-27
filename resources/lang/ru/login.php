@@ -4,7 +4,7 @@ return [
 
     'title' => 'Начнем',
     'common' => 'Войти',
-    'facebook' => 'Войти с помощью Facebook',
-    'google' => 'Войти с помощью Google'
+    'facebook' => 'Войти через FaceBook',
+    'google' => 'Войти через Google'
 
 ];

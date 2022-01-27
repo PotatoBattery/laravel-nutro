@@ -156,7 +156,9 @@ class NutroMainController extends Controller
                 'p-black' =>'p-black',
                 'profile-input' => 'profile-input-wb',
                 'statistic_data-item' => 'statistic_data-item-wb',
-                'chart-background' => 'chart-background-wb'
+                'chart-background' => 'chart-background-wb',
+                'music-selector' => 'music-selector-wb',
+                'music-value' => 'music-value-wb'
             );
         }else{
             return array(
@@ -185,7 +187,9 @@ class NutroMainController extends Controller
                 'p-black' => '',
                 'profile-input' => 'profile-input',
                 'statistic_data-item' => 'statistic_data-item',
-                'chart-background' => 'chart-background'
+                'chart-background' => 'chart-background',
+                'music-selector' => 'music-selector',
+                'music-value' => 'music-value'
             );
         }
     }

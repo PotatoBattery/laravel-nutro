@@ -9,7 +9,7 @@
                 </svg>
             </a>
         </div>
-        <div class="title-container">
+        <div class="title-container title-container-statistic">
             <div class="page-title {{ $classes['text-white'] }}">
                 <h1 class="page-title-sm">{{ __('statistic.title') }}</h1>
             </div>
@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <nutro-chart :uid="{{ $uid }}" translate="{{ __('statistic.statistic') }}" :theme="{{ $theme == 'colored' ? 'true' : 'false' }}"></nutro-chart>
-                <button class="button button-transparent button-share button-statistic">{{ __('statistic.share') }}</button>
+{{--                <button class="button {{ $classes['button-transparent'] }} button-share button-statistic">{{ __('statistic.share') }}</button>--}}
             </div>
         </div>
     </div>

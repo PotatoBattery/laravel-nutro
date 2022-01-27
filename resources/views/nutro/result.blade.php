@@ -21,9 +21,9 @@
                         </div>
                         <div class="{{ $classes['result-title'] }}">
                             @if($time < 10)
-                                минут медитации
+                                {{ __('statistic.minute') }}
                             @else
-                                минуты медитации
+                                {{ __('statistic.minutes_row') }}
                             @endif
                         </div>
                     </div>
@@ -33,7 +33,7 @@
                             {{ $count }}
                         </div>
                         <div class="{{ $classes['result-title'] }}">
-                            Медитаций подряд
+                            {{ __('statistic.meditation_in_row') }}
                         </div>
                     </div>
                     @endif
@@ -41,12 +41,12 @@
                         &laquo;{{ $text->quote }}&raquo;
                     </div>
                 </div>
-                <a class="button {{ $classes['button-fill'] }} button-statistic" href="{{ route('mainpage') }}">Начать заново</a>
-                <button class="button {{ $classes['button-transparent'] }} button-share button-statistic">Поделиться</button>
+                <a class="button {{ $classes['button-fill'] }} button-statistic" href="{{ route('mainpage') }}">{{ __('statistic.restart') }}</a>
+{{--                <button class="button {{ $classes['button-transparent'] }} button-share button-statistic">{{ __('statistic.share') }}</button>--}}
                 @if(!auth()->guest())
-                    <a href="{{ route('statistic') }}" class="button {{ $classes['button-transparent'] }} button-statistic" id="common_statistic">Открыть статистику</a>
+                    <a href="{{ route('statistic') }}" class="button {{ $classes['button-transparent'] }} button-statistic" id="common_statistic">{{ __('statistic.statistic_but') }}</a>
                 @else
-                    <a href="{{ route('signin') }}" class="signin-link-btn">Войдите, чтобы отслеживать прогресс</a>
+                    <a href="{{ route('signin') }}" class="signin-link-btn">{{ __('statistic.login') }}</a>
                 @endif
             </div>
         </div>

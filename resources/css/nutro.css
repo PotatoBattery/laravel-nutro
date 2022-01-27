@@ -14,8 +14,11 @@ body {
 
 a.button{
     display: block;
-    padding: 15px 125px;
+    padding: 13px 95px;
     text-decoration: none !important;
+    text-align: center;
+}
+a.button:hover{
 }
 /*контейнер для содержимого страницы*/
 .wrap {
@@ -48,6 +51,9 @@ a.button{
     right: 0;
     margin: auto;
     height: fit-content;
+}
+.title-container-statistic{
+    bottom: 40em;
 }
 
 /*контейнер для заголовка статистики*/
@@ -193,12 +199,30 @@ a.button{
     border-radius: 45px;
     overflow-y: auto;
 }
+.music-selector-wb{
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background: #000000;
+    margin: 0 auto;
+    border-radius: 45px;
+    overflow-y: auto;
+}
 /*значение музыки*/
 .music-value
 {
     margin: 0 auto;
     text-align: center;
     color: #0FB0BA;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+.music-value-wb
+{
+    margin: 0 auto;
+    text-align: center;
+    color: #FFFFFF;
     margin-bottom: 5px;
     margin-top: 5px;
     cursor: pointer;
@@ -225,11 +249,11 @@ a.button{
 }
 /*контейнер для основного контента страницы с статистикой медитации*/
 .content-with-statistic-result{
-    top: 31.5%;
+    top: 0;
 }
 /*контейнер для основного контента страницы с общей статистикой медитации*/
 .content-with-common-statistic-result{
-    top: 25.5%;
+    top: -5em;
 }
 /*блок*/
 .block {
@@ -283,10 +307,16 @@ a.button{
     color: #0FB0BA;
     background: #FFFFFF;
 }
+.button-fill:hover{
+    color:#0FB0BA;
+}
 .button-fill_wb {
     border: none;
     color: #FFFFFF;
     background: #000000;
+}
+.button-fill_wb:hover{
+    color: #FFFFFF;
 }
 
 /*кнопка с прозрачным фоном*/
@@ -295,22 +325,28 @@ a.button{
     color: #FFFFFF;
     border: 2px solid white;
 }
+.button-transparent:hover{
+    color: #FFFFFF;
+}
 .button-transparent_wb {
     background: transparent;
     color: #000000;
     border: 2px solid black;
 }
+.button-transparent_wb{
+    color: #000000;
+}
 
 /*"маленькая кнопка"*/
 .button-s {
     width: 45%;
-    margin: 0 27.5% 5% 27.5%;
+    /*margin: 0 27.5% 5% 27.5%;*/
 }
 
 /*"средняя кнопка"*/
 .button-m {
     width: 62%;
-    margin: 0 21.5% 5% 21.5%;
+    /*margin: 0 21.5% 5% 21.5%;*/
 }
 /*кнопка подверждения входа и регистрации*/
 .button-submit-signin,
@@ -347,7 +383,10 @@ a.button{
 .field {
     width: inherit;
     height: 4.5vh;
-    margin: 0 0 2% 0;
+    /*margin: 0 0 2% 0;*/
+    display: block;
+    margin: auto;
+    margin-bottom: 2%;
     border-radius: 45px;
     outline: none;
     font-size: 1em;
@@ -808,22 +847,22 @@ a.button{
         top: 35%;
     }
 
-    .content-with-statistic-result{
-        top: 31.5%;
-    }
+    /*.content-with-statistic-result{*/
+    /*    top: 0;*/
+    /*}*/
 
     .content-with-common-statistic-result{
-        top: 25.5%;
+        top: -5em;
     }
 
     .button-s {
         width: 45% !important;
-        margin: 0 27.5% !important;
+        /*margin: 0 27.5% !important;*/
     }
 
     .button-m {
         width: 62% !important;
-        margin: 0 21.5% 5% 21.5% !important;
+        /*margin: 0 21.5% 5% 21.5% !important;*/
     }
 
     .button-start,
@@ -838,7 +877,7 @@ a.button{
     .button,
     .field{
         width: inherit;
-        margin: 0 0 2% 0;
+        /*margin: 0 0 2% 0;*/
     }
 
     /*.settings,*/
@@ -864,7 +903,7 @@ a.button{
     }
 
     .result-quote{
-        font-size: 1.3em;
+        font-size: 1.1em;
     }
 
     .setting-menu-item{
@@ -902,22 +941,22 @@ a.button{
         top: 35%;
     }
 
-    .content-with-statistic-result{
-        top: 31.5%;
-    }
+    /*.content-with-statistic-result{*/
+    /*    top: 0;*/
+    /*}*/
 
     .content-with-common-statistic-result{
-        top: 25.5%;
+        top: -5em;
     }
 
     .button-s {
         width: 25% !important;
-        margin: 0 37.5% 0 37.5%!important;
+        /*margin: 0 37.5% 0 37.5%!important;*/
     }
 
     .button-m{
         width: 30% !important;
-        margin: 0 35% 2% 35% !important;
+        /*margin: 0 35% 2% 35% !important;*/
     }
 
     .button-start,
@@ -939,7 +978,7 @@ a.button{
     .button,
     .field{
         width: 65%;
-        margin: 0 17.5% 2% 17.5%;
+        /*margin: 0 17.5% 2% 17.5%;*/
     }
     /*.settings,*/
     /*.statistic,*/
@@ -1004,22 +1043,22 @@ a.button{
         top: 35%;
     }
 
-    .content-with-statistic-result{
-        top: 31.5%;
-    }
+    /*.content-with-statistic-result{*/
+    /*    top: 0;*/
+    /*}*/
 
     .content-with-common-statistic-result{
-        top: 25.5%;
+        top: -5em;
     }
 
     .button-s {
         width: 25% !important;
-        margin: 0 37.5% 0 37.5%!important;
+        /*margin: 0 37.5% 0 37.5%!important;*/
     }
 
     .button-m{
         width: 30% !important;
-        margin: 0 35% 2% 35% !important;
+        /*margin: 0 35% 2% 35% !important;*/
     }
 
     .button-start,
@@ -1050,7 +1089,7 @@ a.button{
     .button,
     .field{
         width: 50%;
-        margin: 0 25% 2% 25%;
+        /*margin: 0 25% 2% 25%;*/
     }
     /*.settings,*/
     /*.statistic,*/
@@ -1102,22 +1141,22 @@ a.button{
         top: 35%;
     }
 
-    .content-with-statistic-result{
-        top: 31.5%;
-    }
+    /*.content-with-statistic-result{*/
+    /*    top: 0;*/
+    /*}*/
 
     .content-with-common-statistic-result{
-        top: 25.5%;
+        top: -5em;
     }
 
     .button-s {
         width: 25% !important;
-        margin: 0 37.5% 0 37.5%!important;
+        /*margin: 0 37.5% 0 37.5%!important;*/
     }
 
     .button-m{
         width: 30% !important;
-        margin: 0 35% 2% 35% !important;
+        /*margin: 0 35% 2% 35% !important;*/
     }
 
     .button-start,
@@ -1126,7 +1165,7 @@ a.button{
     }
 
     .button-share{
-        margin-top: 0% !important;
+        margin-top: 2% !important;
     }
 
     .button-submit-signin,
@@ -1143,7 +1182,7 @@ a.button{
     .button,
     .field{
         width: 40%;
-        margin: 0 30% 2% 30%
+        /*margin: 0 30% 2% 30%*/
     }
     /*.settings,*/
     /*.statistic,*/
@@ -1196,23 +1235,23 @@ a.button{
         top: 35%;
     }
 
-    .content-with-statistic-result{
-        top: 31.5%;
-    }
+    /*.content-with-statistic-result{*/
+    /*    top: 0;*/
+    /*}*/
 
     .content-with-common-statistic-result{
-        top: 25.5%;
+        top: -5em;
     }
 
 
     .button-s {
         width: 20% !important;
-        margin: 0 40% 0 40%!important;
+        /*margin: 0 40% 0 40%!important;*/
     }
 
     .button-m{
         width: 30% !important;
-        margin: 0 35% 2% 35% !important;
+        /*margin: 0 35% 2% 35% !important;*/
     }
 
     .button-start,
@@ -1221,7 +1260,7 @@ a.button{
     }
 
     .button-share{
-        margin-top: 0% !important;
+        margin-top: 2% !important;
     }
 
     .button-submit-signin,
@@ -1242,7 +1281,7 @@ a.button{
     .button,
     .field{
         width: 40%;
-        margin: 0 27.5% 2% 29.5%;
+        /*margin: 0 27.5% 2% 29.5%;*/
     }
     /*.settings,*/
     /*.statistic,*/

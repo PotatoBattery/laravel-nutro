@@ -36,6 +36,10 @@ export default {
         text:{
             type: String,
             require: true
+        },
+        locale: {
+            type: String,
+            require: true
         }
     },
     data() {
@@ -114,7 +118,7 @@ export default {
                 minutes = minutes - 1;
             }
             let time = minutes+'.'+seconds;
-            window.location.href = '/result?time=' + time;
+            window.location.href = '/'+this.locale+'/result?time=' + time;
         },
         workWithTime()
         {

@@ -9,6 +9,6 @@
             @include('includes.statistic_auth')
         @endguest
         @include('includes.settings')
-        <nutro-index :classes="{{ json_encode($classes) }}" ></nutro-index>
+        <nutro-index :classes="{{ json_encode($classes) }}" locale="{{ $locale }}"></nutro-index>
     </div>
 @endsection

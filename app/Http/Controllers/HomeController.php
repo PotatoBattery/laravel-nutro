@@ -25,13 +25,14 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $locale = app()->getLocale();
         if(Cookie::get('color') == null)
         {
             Cookie::queue('color', 'colored', 43200);
         }
         $theme = Cookie::get('color');
         $classes = $this->getTheme($theme);
-        return response()->view('nutro.index', compact('classes'));
+        return response()->view('nutro.index', compact('classes', 'locale'));
     }
 
     public function getTheme($theme)
@@ -62,7 +63,12 @@ class HomeController extends Controller
                 'timer-value' => 'timer-value-wb',
                 'p-black' =>'p-black',
                 'timer_values' => 'timer-values-wb',
-                'timer_value' => 'timer-value-wb'
+                'timer_value' => 'timer-value-wb',
+                'profile-input' => 'profile-input-wb',
+                'statistic_data-item' => 'statistic_data-item-wb',
+                'chart-background' => 'chart-background-wb',
+                'music-selector' => 'music-selector-wb',
+                'music-value' => 'music-value-wb'
             );
         }else{
             return array(
@@ -90,7 +96,12 @@ class HomeController extends Controller
                 'timer-value' => 'timer-value',
                 'p-black' => '',
                 'timer_values' => 'timer-values',
-                'timer_value' => 'timer-value'
+                'timer_value' => 'timer-value',
+                'profile-input' => 'profile-input',
+                'statistic_data-item' => 'statistic_data-item',
+                'chart-background' => 'chart-background',
+                'music-selector' => 'music-selector',
+                'music-value' => 'music-value'
             );
         }
     }

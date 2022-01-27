@@ -3,21 +3,31 @@
         <div class="block">
             <audio :src="selected.link" ref="audioElement" loop></audio>
             <a href="#" :class="music" v-on:click="showSelect" v-if="!select">{{ selected.title }}</a>
-            <div class="music-selector" v-else>
+            <div :class="musicSelector" v-else>
                 <nutro-music-value link="not-file-link"
-                                   music-name="Без звука"
+                                   :music-name="locale === 'ru' ? 'Без звука' : 'No sound'"
+                                   :music-class="musicSelectorValue"
                                    :selected="prepareSelected('not-file-link')"></nutro-music-value>
                 <nutro-music-value v-for="item in sound"
                                    :key="item.id"
                                    :link="'/storage/' + item.file_path"
-                                   :music-name="item.ru_name"
+                                   :music-name="locale === 'ru' ? item.ru_name : item.en_name"
+                                   :music-class="musicSelectorValue"
                                    :selected="prepareSelected('/storage/' + item.file_path)"></nutro-music-value>
             </div>
-            <button :class="'button ' + fill + ' button-s button-start'" v-on:click="startMeditation" v-if="start">Начать</button>
-            <button :class="'button ' + transparent + ' button-pause'" v-if="!start && pause" v-on:click="meditationControl">Пауза</button>
+            <button :class="'button ' + fill + ' button-s button-start'" v-on:click="startMeditation" v-if="start">
+                {{ locale === 'ru' ? 'Начать' : 'Start' }}
+            </button>
+            <button :class="'button ' + transparent + ' button-pause'" v-if="!start && pause" v-on:click="meditationControl">
+                {{ locale === 'ru' ? 'Пауза' : 'Pause' }}
+            </button>
             <span v-if="!start && !pause">
-                <button :class="'button ' + fill + ' button-s button-start'" v-on:click="meditationControl">Продолжить</button>
-                <button :class="'button ' + fill + ' button-s button-end'" v-on:click="endMeditation">Закончить</button>
+                <button :class="'button ' + fill + ' button-s button-start'" v-on:click="meditationControl">
+                    {{ locale === 'ru' ? 'Продолжить' : 'Continue' }}
+                </button>
+                <button :class="'button ' + fill + ' button-s button-end'" v-on:click="endMeditation">
+                    {{ locale === 'ru' ? 'Закончить' : 'Finish' }}
+                </button>
             </span>
         </div>
     </div>
@@ -39,6 +49,18 @@ export default {
         music: {
             type: String,
             require: true
+        },
+        musicSelector: {
+            type: String,
+            require: true
+        },
+        musicSelectorValue: {
+            type: String,
+            require: true
+        },
+        locale: {
+            type: String,
+            require: true
         }
     },
     data() {
@@ -49,7 +71,7 @@ export default {
             sound: [],
             selected:{
                 link: 'not-file-link',
-                title: 'Без звука'
+                title: this.locale === 'ru' ? 'Без звука' : 'No sound'
             },
             audioSrc: 'not-file-link'
         }

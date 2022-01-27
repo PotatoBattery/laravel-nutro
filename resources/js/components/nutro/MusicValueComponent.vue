@@ -20,6 +20,10 @@ export default {
             type: Boolean,
             required: true
         },
+        musicClass: {
+            type:String,
+            required: true
+        }
     },
     data(){
         return {
@@ -27,7 +31,7 @@ export default {
         }
     },
     mounted () {
-        this.itemClass = this.selected ? 'music-value timer-value-selected' : 'music-value';
+        this.itemClass = this.selected ? this.musicClass + ' timer-value-selected' : this.musicClass;
         if(this.selected){
             this.$root.$emit('selected-music', this.$el);
         }

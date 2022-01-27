@@ -12,13 +12,16 @@
 |        |          |                               |                       |                                                                        | Closure                                          |
 |        | GET|HEAD | _debugbar/open                | debugbar.openhandler  | Barryvdh\Debugbar\Controllers\OpenHandlerController@handle             | Barryvdh\Debugbar\Middleware\DebugbarEnabled     |
 |        |          |                               |                       |                                                                        | Closure                                          |
-|        | GET|HEAD | _debugbar/telescope/{id}      | debugbar.telescope    | Barryvdh\Debugbar\Controllers\TelescopeController@show                 | Barryvdh\Debugbar\Middleware\DebugbarEnabled     |
-|        |          |                               |                       |                                                                        | Closure                                          |
 |        | GET|HEAD | about                         | about                 | App\Http\Controllers\Nutro\NutroMainController@about                   | web                                              |
 |        | GET|HEAD | admin                         | admin_dashboard       | App\Http\Controllers\Nutro\Admin\NutroAdminController@index            | web                                              |
 |        |          |                               |                       |                                                                        | App\Http\Middleware\IsAdminMiddleware            |
+|        | GET|HEAD | admin/music/add               | admin.music.add       | App\Http\Controllers\Nutro\Admin\NutroAdminController@musicAdd         | web                                              |
+|        |          |                               |                       |                                                                        | App\Http\Middleware\IsAdminMiddleware            |
+|        | POST     | admin/music/store             | admin.music.store     | App\Http\Controllers\Nutro\Admin\NutroAdminController@musicStore       | web                                              |
+|        |          |                               |                       |                                                                        | App\Http\Middleware\IsAdminMiddleware            |
 |        | GET|HEAD | api/chart                     | api.chart             | App\Http\Controllers\Nutro\ApiNutroController@getChart                 | api                                              |
 |        | GET|HEAD | api/color                     | api.color             | App\Http\Controllers\Nutro\ApiNutroController@setColorTheme            | api                                              |
+|        | GET|HEAD | api/music                     | api.music             | App\Http\Controllers\Nutro\ApiNutroController@getMusic                 | api                                              |
 |        | POST     | api/profile                   | api.profile           | App\Http\Controllers\Nutro\ApiNutroController@saveProfileField         | api                                              |
 |        | GET|HEAD | api/user                      |                       | Closure                                                                | api                                              |
 |        |          |                               |                       |                                                                        | App\Http\Middleware\Authenticate:api             |
@@ -30,9 +33,9 @@
 |        | POST     | forgot-password               | password.email        | Closure                                                                | web                                              |
 |        |          |                               |                       |                                                                        | App\Http\Middleware\RedirectIfAuthenticated      |
 |        | GET|HEAD | forgot_password               | forgot_password       | App\Http\Controllers\Nutro\NutroMainController@forgotPassword          | web                                              |
-|        | GET|HEAD | login                         | login                 | App\Http\Controllers\Auth\LoginController@showLoginForm                | web                                              |
-|        |          |                               |                       |                                                                        | App\Http\Middleware\RedirectIfAuthenticated      |
 |        | POST     | login                         |                       | App\Http\Controllers\Auth\LoginController@login                        | web                                              |
+|        |          |                               |                       |                                                                        | App\Http\Middleware\RedirectIfAuthenticated      |
+|        | GET|HEAD | login                         | login                 | App\Http\Controllers\Auth\LoginController@showLoginForm                | web                                              |
 |        |          |                               |                       |                                                                        | App\Http\Middleware\RedirectIfAuthenticated      |
 |        | GET|HEAD | login/facebook                | login.facebook        | App\Http\Controllers\Auth\LoginController@redirectToFacebook           | web                                              |
 |        |          |                               |                       |                                                                        | App\Http\Middleware\RedirectIfAuthenticated      |
@@ -43,9 +46,9 @@
 |        | GET|HEAD | login/google/callback         |                       | App\Http\Controllers\Auth\LoginController@handleGoogleCallback         | web                                              |
 |        |          |                               |                       |                                                                        | App\Http\Middleware\RedirectIfAuthenticated      |
 |        | POST     | logout                        | logout                | App\Http\Controllers\Auth\LoginController@logout                       | web                                              |
-|        | GET|HEAD | password/confirm              | password.confirm      | App\Http\Controllers\Auth\ConfirmPasswordController@showConfirmForm    | web                                              |
-|        |          |                               |                       |                                                                        | App\Http\Middleware\Authenticate                 |
 |        | POST     | password/confirm              |                       | App\Http\Controllers\Auth\ConfirmPasswordController@confirm            | web                                              |
+|        |          |                               |                       |                                                                        | App\Http\Middleware\Authenticate                 |
+|        | GET|HEAD | password/confirm              | password.confirm      | App\Http\Controllers\Auth\ConfirmPasswordController@showConfirmForm    | web                                              |
 |        |          |                               |                       |                                                                        | App\Http\Middleware\Authenticate                 |
 |        | POST     | password/email                | password.email        | App\Http\Controllers\Auth\ForgotPasswordController@sendResetLinkEmail  | web                                              |
 |        | GET|HEAD | password/reset                | password.request      | App\Http\Controllers\Auth\ForgotPasswordController@showLinkRequestForm | web                                              |
